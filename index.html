@@ -171,7 +171,7 @@ body {
     width: 0%;
 }
 
-/* Keyboard hint */
+/* Keyboard / touch hint */
 .keyboard-hint {
     position: fixed;
     bottom: clamp(2rem, 4vh, 3rem);
@@ -183,6 +183,7 @@ body {
     opacity: 0.5;
     z-index: 100;
     transition: opacity 0.4s ease;
+    white-space: nowrap;
 }
 
 /* ===========================================
@@ -660,6 +661,8 @@ body {
 /* ===========================================
    RESPONSIVE BREAKPOINTS
    =========================================== */
+
+/* --- Height-based scaling (large screens) --- */
 @media (max-height: 1400px) {
     :root {
         --slide-padding: clamp(2rem, 6vw, 5rem);
@@ -677,7 +680,6 @@ body {
         --h2-size: clamp(2.2rem, 5vw, 3.2rem);
         --body-size: clamp(1.36rem, 2.2vw, 1.76rem);
     }
-    .nav-dots, .keyboard-hint { display: none; }
 }
 
 @media (max-height: 1000px) {
@@ -689,9 +691,10 @@ body {
     }
 }
 
+/* --- Width-based: Laptop / small desktop (≤1536px) --- */
 @media (max-width: 1536px) {
     :root {
-        --title-size: clamp(3rem, 16vw, 5.6rem);
+        --title-size: clamp(3rem, 10vw, 5.6rem);
     }
     .two-col {
         grid-template-columns: 1fr;
@@ -701,6 +704,210 @@ body {
     .comparison-table { grid-template-columns: 1fr; }
 }
 
+/* --- Width-based: Tablet landscape (≤1024px) --- */
+@media (max-width: 1024px) {
+    :root {
+        --slide-padding: clamp(1.5rem, 5vw, 3rem);
+        --content-gap: clamp(0.8rem, 2.5vw, 1.5rem);
+        --title-size: clamp(2.4rem, 7vw, 3.6rem);
+        --h2-size: clamp(2rem, 5.5vw, 3rem);
+        --h3-size: clamp(1.6rem, 3.2vw, 2.2rem);
+        --body-size: clamp(1.1rem, 2.2vw, 1.5rem);
+        --small-size: clamp(1rem, 1.8vw, 1.3rem);
+        --label-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    }
+    .nav-dots { display: none; }
+    .keyboard-hint { display: none; }
+    .title-logo { width: clamp(280px, 50vw, 440px); }
+    .closing-logo { width: clamp(240px, 44vw, 380px); }
+    .trusted-by {
+        margin-top: clamp(4rem, 10vh, 8rem);
+        flex-direction: column;
+        gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    .client-logo {
+        height: clamp(56px, 7vh, 80px);
+        max-width: clamp(140px, 20vw, 220px);
+    }
+    .logo-placeholders {
+        gap: clamp(1.5rem, 4vw, 3rem);
+    }
+    .spotlight-quote {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        padding: clamp(1.5rem, 3vh, 2.5rem) clamp(2rem, 4vw, 3.5rem);
+        border-width: 4px;
+    }
+    .card {
+        padding: clamp(1.2rem, 3vw, 2rem);
+    }
+    .comparison-col {
+        padding: clamp(1.2rem, 3vw, 2rem);
+    }
+    .icon-badge {
+        width: clamp(48px, 5vw, 64px);
+        height: clamp(48px, 5vw, 64px);
+    }
+}
+
+/* --- Width-based: Tablet portrait (≤768px) --- */
+@media (max-width: 768px) {
+    :root {
+        --slide-padding: clamp(1.2rem, 4vw, 2rem);
+        --content-gap: clamp(0.6rem, 2vw, 1.2rem);
+        --element-gap: clamp(0.4rem, 1.2vw, 0.8rem);
+        --title-size: clamp(2rem, 7vw, 3rem);
+        --h2-size: clamp(1.7rem, 5.5vw, 2.4rem);
+        --body-size: clamp(0.95rem, 2.4vw, 1.3rem);
+        --small-size: clamp(0.85rem, 2vw, 1.1rem);
+        --label-size: clamp(0.75rem, 1.6vw, 0.95rem);
+    }
+    .slide {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .slide-content {
+        overflow: visible;
+    }
+    .two-col {
+        gap: clamp(0.6rem, 2vw, 1.2rem);
+    }
+    .title-logo {
+        width: clamp(220px, 55vw, 360px);
+        margin-bottom: clamp(1.5rem, 4vh, 3rem);
+    }
+    .closing-logo {
+        width: clamp(180px, 50vw, 300px);
+        margin-bottom: clamp(1.5rem, 4vh, 3rem);
+    }
+    .title-slide h1 {
+        margin-bottom: clamp(1rem, 2.5vh, 2rem);
+    }
+    .trusted-by {
+        margin-top: clamp(2rem, 6vh, 5rem);
+        gap: clamp(1rem, 2.5vw, 2rem);
+    }
+    .logo-placeholders {
+        gap: clamp(1rem, 3vw, 2rem);
+    }
+    .client-logo {
+        height: clamp(40px, 5.5vh, 60px);
+        max-width: clamp(100px, 18vw, 160px);
+    }
+    .pill {
+        padding: clamp(0.4rem, 1vh, 0.7rem) clamp(1rem, 2.5vw, 1.6rem);
+        font-size: var(--label-size);
+    }
+    .pills {
+        gap: clamp(0.5rem, 1.5vw, 1rem);
+    }
+    .spotlight-quote {
+        font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+        padding: clamp(1rem, 2.5vh, 2rem) clamp(1.2rem, 3vw, 2.5rem);
+        border-width: 3px;
+    }
+    .tagline-bar {
+        padding: clamp(0.8rem, 2vh, 1.4rem) clamp(1.2rem, 3vw, 2rem);
+        border-radius: clamp(10px, 1.6vw, 16px);
+        font-size: var(--small-size);
+    }
+    .check-list li, .problem-list li {
+        font-size: var(--small-size);
+        gap: clamp(0.4rem, 1vw, 0.7rem);
+    }
+    .check-list li::before, .problem-list li::before {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        background-size: 12px;
+    }
+    .flow-row {
+        gap: clamp(0.4rem, 1.5vw, 1rem);
+    }
+    .flow-box {
+        padding: clamp(0.6rem, 1.4vw, 1rem) clamp(1rem, 2vw, 1.6rem);
+        font-size: var(--label-size);
+        border-radius: clamp(10px, 1.6vw, 16px);
+        border-width: 2px;
+    }
+    .flow-arrow {
+        font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    }
+    .comparison-col {
+        padding: clamp(1rem, 2.5vw, 1.6rem);
+    }
+    .comparison-col ul li {
+        font-size: var(--small-size);
+    }
+    .card {
+        border-radius: clamp(12px, 2vw, 20px);
+        padding: clamp(1rem, 2.5vw, 1.6rem);
+    }
+    .card-accent {
+        border-left-width: 4px;
+    }
+    .closing-cta {
+        padding: clamp(0.8rem, 2vh, 1.2rem) clamp(2rem, 5vw, 3rem);
+        font-size: var(--small-size);
+        border-radius: clamp(10px, 1.6vw, 16px);
+    }
+}
+
+/* --- Width-based: Mobile (≤480px) --- */
+@media (max-width: 480px) {
+    :root {
+        --slide-padding: clamp(0.8rem, 3.5vw, 1.4rem);
+        --content-gap: clamp(0.5rem, 1.8vw, 1rem);
+        --element-gap: clamp(0.3rem, 1vw, 0.6rem);
+        --title-size: clamp(1.7rem, 7.5vw, 2.4rem);
+        --h2-size: clamp(1.4rem, 6vw, 2rem);
+        --body-size: clamp(0.85rem, 3vw, 1.1rem);
+        --small-size: clamp(0.78rem, 2.6vw, 0.95rem);
+        --label-size: clamp(0.68rem, 2.2vw, 0.85rem);
+    }
+    .title-logo {
+        width: clamp(180px, 60vw, 280px);
+        margin-bottom: clamp(1rem, 3vh, 2rem);
+    }
+    .closing-logo {
+        width: clamp(150px, 55vw, 240px);
+        margin-bottom: clamp(1rem, 3vh, 2rem);
+    }
+    .trusted-by {
+        margin-top: clamp(1.5rem, 4vh, 3rem);
+        gap: clamp(0.8rem, 2vw, 1.5rem);
+    }
+    .logo-placeholders {
+        gap: clamp(0.8rem, 2.5vw, 1.5rem);
+    }
+    .client-logo {
+        height: clamp(30px, 4.5vh, 48px);
+        max-width: clamp(72px, 16vw, 120px);
+    }
+    .slide-subtitle {
+        line-height: 1.4;
+    }
+    .spotlight-quote {
+        font-size: clamp(1rem, 3.8vw, 1.4rem);
+        padding: clamp(0.8rem, 2vh, 1.4rem) clamp(1rem, 2.5vw, 1.8rem);
+        line-height: 1.35;
+        border-width: 2px;
+    }
+    .flow-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .comparison-table {
+        border-radius: clamp(10px, 2vw, 16px);
+    }
+    .card {
+        border-radius: clamp(10px, 1.8vw, 14px);
+    }
+    .closing-cta {
+        margin-top: clamp(1rem, 3vh, 2rem);
+    }
+}
+
+/* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -720,6 +927,8 @@ body {
 
 <!-- Keyboard hint -->
 <div class="keyboard-hint" id="keyboardHint">Use arrow keys or scroll to navigate</div>
+<!-- Touch hint (shown on touch devices) -->
+<div class="keyboard-hint touch-hint" id="touchHint" style="display: none;">Swipe up or down to navigate</div>
 
 <!-- ===================================================
      SLIDE 1: TITLE
@@ -1011,6 +1220,7 @@ class SlidePresentation {
         this.setupWheel();
         this.setupTouch();
         this.updateProgress();
+        this.detectTouchDevice();
 
         /* Hide keyboard hint after first navigation */
         this.hintHidden = false;
@@ -1118,7 +1328,15 @@ class SlidePresentation {
     hideHint() {
         if (!this.hintHidden) {
             document.getElementById('keyboardHint').style.opacity = '0';
+            document.getElementById('touchHint').style.opacity = '0';
             this.hintHidden = true;
+        }
+    }
+
+    detectTouchDevice() {
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            document.getElementById('keyboardHint').style.display = 'none';
+            document.getElementById('touchHint').style.display = '';
         }
     }
 }
