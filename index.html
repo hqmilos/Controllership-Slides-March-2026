@@ -696,9 +696,21 @@ body {
     :root {
         --title-size: clamp(3rem, 10vw, 5.6rem);
     }
+    .slide {
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-snap-align: start;
+    }
+    .slide-content {
+        overflow: visible;
+    }
     .two-col {
         grid-template-columns: 1fr;
         gap: clamp(1rem, 3vw, 2rem);
+        flex: none;
+    }
+    .col {
+        overflow: visible;
     }
     .flow-row { flex-wrap: wrap; }
     .comparison-table { grid-template-columns: 1fr; }
@@ -760,13 +772,6 @@ body {
         --body-size: clamp(0.95rem, 2.4vw, 1.3rem);
         --small-size: clamp(0.85rem, 2vw, 1.1rem);
         --label-size: clamp(0.75rem, 1.6vw, 0.95rem);
-    }
-    .slide {
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    .slide-content {
-        overflow: visible;
     }
     .two-col {
         gap: clamp(0.6rem, 2vw, 1.2rem);
