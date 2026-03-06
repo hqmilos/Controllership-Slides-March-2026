@@ -73,9 +73,9 @@ body {
    =========================================== */
 .slide {
     width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -88,8 +88,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-height: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* Headline top-left, tagline at bottom (matches AR/AP/GA slides) */
@@ -287,16 +286,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(2rem, 5vw, 4rem);
-    flex: 1;
-    max-height: 100%;
-    overflow: hidden;
 }
 
 .col {
     display: flex;
     flex-direction: column;
     gap: var(--element-gap);
-    overflow: hidden;
 }
 
 /* ===========================================
@@ -696,21 +691,10 @@ body {
     :root {
         --title-size: clamp(3rem, 10vw, 5.6rem);
     }
-    .slide {
-        overflow-y: auto;
-        overflow-x: hidden;
-        scroll-snap-align: start;
-    }
-    .slide-content {
-        overflow: visible;
-    }
     .two-col {
         grid-template-columns: 1fr;
         gap: clamp(1rem, 3vw, 2rem);
         flex: none;
-    }
-    .col {
-        overflow: visible;
     }
     .flow-row { flex-wrap: wrap; }
     .comparison-table { grid-template-columns: 1fr; }
