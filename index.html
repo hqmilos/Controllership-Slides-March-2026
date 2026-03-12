@@ -246,6 +246,11 @@ body {
     font-weight: 500;
     letter-spacing: 0.02em;
     white-space: nowrap;
+    border: 3px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .pill-filled {
@@ -261,7 +266,24 @@ body {
 .pill-outline {
     background: transparent;
     color: var(--accent);
-    border: 3px solid var(--border-light);
+    border-color: var(--border-light);
+}
+
+/* Small mark on all non-intro/outro slides */
+.slide:not(.title-slide):not(.closing-slide)::after {
+    content: "";
+    position: absolute;
+    top: var(--slide-padding);
+    right: var(--slide-padding);
+    width: clamp(27px, 2.7vw, 39px);
+    height: clamp(27px, 2.7vw, 39px);
+    background-image: url("hq-icon-brand.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.58;
+    z-index: 5;
+    pointer-events: none;
 }
 
 /* ===========================================
@@ -874,6 +896,18 @@ body {
     }
     .slide-subtitle {
         line-height: 1.4;
+    }
+    .title-slide .pills {
+        width: min(100%, 420px);
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(0.4rem, 1.5vw, 0.8rem);
+    }
+    .title-slide .pill {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
     }
     .spotlight-quote {
         font-size: clamp(1rem, 3.8vw, 1.4rem);
